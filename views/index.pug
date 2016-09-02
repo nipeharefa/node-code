@@ -1,0 +1,30 @@
+html
+  head
+    title= title
+    link(href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet" )
+  body
+    div.container
+      div
+        select(v-model="searchKey")
+          option(value="name") Name
+          option(value="email") Email
+          option(value="phone") Phone
+          option(value="company") Company
+        input(placeholder="Search")
+      table.table
+        thead
+          td Name
+          td Email
+          td Phone
+          td Address
+          td Company
+        tr(v-for="item in user")
+          td {{item.name}}
+          td {{item.email}}
+          td {{item.phone || '-'}}
+          td {{item.address || '-'}}
+          td {{item.company || '-'}}
+          td 
+            button.btn.btn-primary(@click="remove(item)") x
+    script(type='text/javascript' src='https://cdn.jsdelivr.net/g/jquery@3.1.0,vue@1.0.26')
+    script(type='text/javascript' src='/js/main.js')
