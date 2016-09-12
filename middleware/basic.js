@@ -1,4 +1,7 @@
 var basicAuth = require('basic-auth')
+require('dotenv').config()
+const username = process.env.USER_NAME
+const password = process.env.USER_PASWD
 
 var auth = function (req, res, next) {
   function unauthorized(res) {
@@ -12,7 +15,7 @@ var auth = function (req, res, next) {
     return unauthorized(res);
   };
 
-  if (user.name === 'foo' && user.pass === 'bar') {
+  if (user.name === username && user.pass === password) {
     return next();
   } else {
     return unauthorized(res);
