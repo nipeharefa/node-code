@@ -5,6 +5,7 @@
   "main": "index.js",
   "scripts": {
     "dev": "gulp  && nodemon server.js",
+    "prod": "gulp --production",
     "test": "echo \"Error: no test specified\" && exit 1",
     "lint": "eslint --ext .js,.vue js"
   },
